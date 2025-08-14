@@ -1,0 +1,46 @@
+class Livro:
+    #define as variaveis
+    def __init__(self, titulo, autor, npg):
+                 self.titulo = titulo
+                 self.autor = autor
+                 self.npg = npg
+                 self.paginaatual = 0 #começa zerado
+
+    #"def" cria um metodo dentro da classe livro
+    def abrir_livro(self):
+        #abre o livro na pagina 1
+        self.paginaatual = 1
+        print(f"O livro '{self.titulo}' esta na pagina 1")
+
+    def ler_paginas(self, quantidade):
+        if self.paginaatual == 0:
+            print("Voce precisa abrir o livro.")
+            return
+
+        #adiciona uma pagina lida
+        novapag = self.paginaatual + quantidade
+        
+        if novapag >= self.npg:
+            self.paginaatual = sel.npg
+            print("Voce terminou o livro.")
+
+        else:
+            #mostra quantas paginas ja foram lidas
+            self.paginaatual = novapag
+            print(f"Voce leu {quantidade} paginas. Agora está na pagina '{self.paginaatual}'.")
+
+    def exibir_prog(self):
+        if self.paginaatual == 0:
+            print("O livro ainda nao foi aberto")
+
+        else:
+            #mostra as paginas lidas e as paginas restantes
+            paglidas = self.paginaatual
+            pagresta = self.npg - paglidas
+            print(f"Voce leu {paglidas}. Faltam {pagresta} paginas para acabar o livro")
+
+#exemplo de livro
+livro = Livro("O Pequeno Principe","Antoine de Saint-Exupéry", 136)
+livro.abrir_livro()
+livro.ler_paginas(100)
+livro.exibir_prog()
